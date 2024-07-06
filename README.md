@@ -3,7 +3,30 @@ The official implementation of the paper: [**FedLPPA: Learning Personalized Prom
 ![TEL](image/framework.png)
 # Datasets
 ## Details of the datasets
-![TEL](image/dataset.png)
+<table>
+    <caption align="center">Detils of the datasets utilized in our experiments. Scribble^2 refers to scribbles of a different style generated using another aligorithm.</caption>
+  <thead>
+    <tr>
+      <th>Modality</th>
+      <th>Dataset URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">Fundus</td>
+      <td align="center">OCTA</td>
+      <td align="center">Endoscopy</td>
+      <td align="center">Prostate MRI</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td> 
+      <td align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td>  
+      <td align="center"><a href="https://kits-challenge.org/kits23/">Download</a></td>  
+      <td align="center"><a href="https://kits-challenge.org/kits23/">Download</a></td>  
+    </tr>
+
+  </tbody>
+</table>
 ## Training set
 Examples of the image and the corresponding sparse annotation from each site.
 ![TEL](image/label.png){width=100%}
