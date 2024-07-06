@@ -8,7 +8,6 @@ The official implementation of the paper: [**FedLPPA: Learning Personalized Prom
 
 
 <table>
-    <caption align="center">Detils of the datasets utilized in our experiments. Scribble^2 refers to scribbles of a different style generated using another aligorithm</caption>
   <tbody>
     <tr>
       <td align="center">Fundus</td>
