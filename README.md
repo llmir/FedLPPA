@@ -27,9 +27,13 @@ The official implementation of the paper: [**FedLPPA: Learning Personalized Prom
 
 ## Details of Training set
 Examples of the image and the corresponding sparse annotation from each site.
+
 ![TEL](image/label.png)
+
 # Visualization Results
+
 ![TEL](image/output.png)
+
 # Requirements
 Some important required packages are lised below:
 * Pytorch 1.10.2
