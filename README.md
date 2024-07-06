@@ -61,8 +61,24 @@ conda activate fed39v2
 Data preprocessing includes normalizing all image intensities to between 0 and 1, while data augmentation includes randomly flipping images horizontally and vertically as well as rotation (spanning from -45° to 45°).
 
 ## 4. Train the model
-``` bash 
-python flower_runner.py --port 8097 --procedure flower_pCE_2D_GateCRFMsacleTreeEnergyLoss_Ours --exp faz/WeaklySeg_pCE --base_lr 0.01 --img_class faz --model unet_lc_multihead --gpus 0 1 2 3 4 5 --strategy FedICRA --alpha 1 --rep_iters 3
+``` bash
+#Server
+python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet_univ5 --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role server --client client_all --sup_type mask --gpu 0
+
+#Site A
+python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet_univ5 --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role client --cid 0 --client client1 --sup_type scribble_noisy --gpu 1
+
+#Site B
+python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet_univ5 --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role client --cid 1 --client client2 --sup_type keypoint --gpu 2
+
+#Site C
+python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet_univ5 --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role client --cid 2 --client client3 --sup_type block --gpu 3
+
+#Site D
+python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet_univ5 --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role client --cid 3 --client client4 --sup_type box --gpu 4
+
+#Site E
+python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet_univ5 --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role client --cid 4 --client client5 --sup_type scribble --gpu 5
 ```
 
 ## 5. Test the model
