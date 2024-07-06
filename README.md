@@ -91,6 +91,7 @@ python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_
 - prompt: employ learnable prompts or one-hot. Two formats 'universal' or 'onehot'
 - attention: attention module selection
 - dual_init: Select a aggregated strategy.
+- min_num_clients: The total number of clients
 - label_prompt: 0 or 1 , use or not use the sparse label prompts
 - role: 'Server' or 'Client'
 - cid: client_id
@@ -98,7 +99,7 @@ python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_
 
 ## 5. Test the model
 ``` bash
-python -u test.py --client client1 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5/test/ --img_class faz --exp faz/ --min_num_clients 5 --cid 1 --model unet_univ5
+python -u test_client4onemod_FL_Personalize.py --client client1 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5/test/ --img_class faz --exp faz/ --min_num_clients 5 --cid 1 --model unet_univ5
 ```
 
 # Acknowledgement
