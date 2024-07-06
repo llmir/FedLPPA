@@ -3,30 +3,34 @@ The official implementation of the paper: [**FedLPPA: Learning Personalized Prom
 ![TEL](image/framework.png)
 # Datasets
 ## Details of the datasets
+
+
 <table>
-    <caption align="center">Detils of the datasets utilized in our experiments. Scribble^2 refers to scribbles of a different style generated using another aligorithm.</caption>
+    <caption align="center">Detils of the datasets utilized in our experiments. Scribble^2 refers to scribbles of a different style generated using another aligorithm</caption>
   <thead>
     <tr>
-      <td>Modality</th>
-      <td>Dataset URL</th>
+      <th>Modality</th>
+      <th>Dataset URL</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th align="center">Fundus</td>
-      <th align="center">OCTA</td>
-      <th align="center">Endoscopy</td>
-      <th align="center">Prostate MRI</td>
+      <td align="center">Fundus</td>
+      <td align="center">OCTA</td>
+      <td align="center">Endoscopy</td>
+      <td align="center">Prostate MRI</td>
     </tr>
     <tr>
-      <th align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td> 
-      <th align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td>  
-      <th align="center"><a href="https://kits-challenge.org/kits23/">Download</a></td>  
-      <th align="center"><a href="https://kits-challenge.org/kits23/">Download</a></td>  
+      <td align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td> 
+      <td align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td>  
+      <td align="center"><a href="https://kits-challenge.org/kits23/">Download</a></td>  
+      <td align="center"><a href="https://kits-challenge.org/kits23/">Download</a></td>  
     </tr>
 
   </tbody>
 </table>
+
+
 ## Training set
 Examples of the image and the corresponding sparse annotation from each site.
 ![TEL](image/label.png){width=100%}
