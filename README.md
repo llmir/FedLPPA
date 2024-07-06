@@ -2,7 +2,7 @@
 The official implementation of the paper: [**FedLPPA: Learning Personalized Prompt and Aggregation for Federated Weakly-supervised Medical Image Segmentation**](https://arxiv.org/abs/2402.17502)
 ![TEL](image/framework.png)
 # Datasets
-## Details of the datasets
+## Download the Datasets
 
 
 <table>
@@ -17,17 +17,17 @@ The official implementation of the paper: [**FedLPPA: Learning Personalized Prom
     <tr>
       <td align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td> 
       <td align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td>  
-      <td align="center"><a href="https://kits-challenge.org/kits23/">Download</a></td>  
-      <td align="center"><a href="https://kits-challenge.org/kits23/">Download</a></td>  
+      <td align="center"><a href="https://">Download</a></td>  
+      <td align="center"><a href="https://">Download</a></td>  
     </tr>
 
   </tbody>
 </table>
 
 
-## Training set
+## Details of Training set
 Examples of the image and the corresponding sparse annotation from each site.
-![TEL](image/label.png){width=100%}
+![TEL](image/label.png){width=60%}
 # Visualization Results
 ![TEL](image/output.png)
 # Requirements
