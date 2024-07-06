@@ -27,7 +27,9 @@ The official implementation of the paper: [**FedLPPA: Learning Personalized Prom
 
 
 ## Details of Training set
-Examples of the image and the corresponding sparse annotation from each site.
+Examples of the image and the sparse annotation from each site. The detailed information of datasets can be found in the [paper](https://arxiv.org/abs/2402.17502)
+
+![TEL](image/framework.png).
 
 ![TEL](image/label.png)
 
