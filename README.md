@@ -107,5 +107,16 @@ python -u test.py --client client1 --num_classes 2 --in_chns 1 --root_path ../da
 * [FedALA](https://github.com/TsingZ0/FedALA)
 * [FedLC](https://github.com/jcwang123/FedLC)
 
+# Citation
+If you find FedLPPA useful in your research, please consider citing:
+```
+@article{lin2024fedlppa,
+  title={FedLPPA: Learning Personalized Prompt and Aggregation for Federated Weakly-supervised Medical Image Segmentation},
+  author={Lin, Li and Liu, Yixiang and Wu, Jiewei and Cheng, Pujin and Cai, Zhiyuan and Wong, Kenneth KY and Tang, Xiaoying},
+  journal={arXiv preprint arXiv:2402.17502},
+  year={2024}
+}
+```
+
   
 
