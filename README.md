@@ -57,8 +57,9 @@ cd FedLPPA
 conda env create -n fed39v2 -f fed39v2.yaml
 conda activate fed39v2
 ```
-## 3. Pre-processing
-Data preprocessing includes normalizing all image intensities to between 0 and 1, while data augmentation includes randomly flipping images horizontally and vertically as well as rotation (spanning from -45° to 45°).
+## 3. Data Preparation
+Download the datasets to the dir 'FedLPPA/data' in the form of '.h5'.
+
 
 ## 4. Train the model
 ``` bash
@@ -80,12 +81,31 @@ python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_
 #Site E
 python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet_univ5 --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role client --cid 4 --client client5 --sup_type scribble --gpu 5
 ```
+- root_path: The dataset root path.
+- num_classes: The segmentation classes.
+- batch_size: 12.
+- image_size: Default value is 256.
+- exp: save_path of models and 'log' file.
+- server_address: Server communication port. If you train the server model and client models in one server, please set it to the similar format '127.0.0.1:8091'
+- strategy: Choose a federated learning strategy, i.e., FedAvg, FedBN, FedRep and FedLPPA.
+- prompt: employ learnable prompts or one-hot. Two formats 'universal' or 'onehot'
+- attention: attention module selection
+- dual_init: Select a aggregated strategy.
+- label_prompt: 0 or 1 , use or not use the sparse label prompts
+- role: 'Server' or 'Client'
+- cid: client_id
+- sup_type: Choose the format of sparse annotation.
 
 ## 5. Test the model
 ``` bash
-python -u test.py --client client0 --num_classes 2 --in_chns 1 --root_path ../test/ --img_class faz --exp faz/ --min_num_clients 5 --cid 0 --model unet_lc_multihead
+python -u test.py --client client1 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5/test/ --img_class faz --exp faz/ --min_num_clients 5 --cid 1 --model unet_univ5
 ```
 
 # Acknowledgement
-* [WSL4MIS](https://github.com/HiLab-git/WSL4MIS)
 * [flower](https://github.com/mher/flower)
+* [WSL4MIS](https://github.com/HiLab-git/WSL4MIS)
+* [FedALA](https://github.com/TsingZ0/FedALA)
+* [FedLC](https://github.com/jcwang123/FedLC)
+
+  
+
