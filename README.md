@@ -49,7 +49,7 @@ Some important required packages are lised below:
 ## 1. Clone this project
 ``` bash
 git clone https://github.com/llmir/FedLPPA.git
-cd FedLPPA
+cd FedLPPA/code_v4
 ```
 
 ## 2. Create a conda environment
