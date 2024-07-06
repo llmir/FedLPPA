@@ -1,10 +1,3 @@
-<style>
-  .full-width {
-    width: 100%;
-    height: auto;
-  }
-</style>
-
 # FedLPPA: Learning Personalized Prompt and Aggregation for Federated Weakly-supervised Medical Image Segmentation
 The official implementation of the paper: [**FedLPPA: Learning Personalized Prompt and Aggregation for Federated Weakly-supervised Medical Image Segmentation**](https://arxiv.org/abs/2402.17502)
 ![TEL](image/framework.png)
@@ -13,7 +6,7 @@ The official implementation of the paper: [**FedLPPA: Learning Personalized Prom
 ![TEL](image/dataset.png)
 ## Training set
 Examples of the image and the corresponding sparse annotation from each site.
-<img src="image/label.png" class="full-width">
+![TEL](image/label.png){width=100%}
 # Visualization Results
 ![TEL](image/output.png)
 # Requirements
