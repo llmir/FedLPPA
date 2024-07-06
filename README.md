@@ -6,7 +6,7 @@ The official implementation of the paper: [**FedLPPA: Learning Personalized Prom
 ![TEL](image/dataset.png)
 ## Training set
 Examples of the image and the corresponding sparse annotation from each site.
-![TEL](image/trainingset.png)
+![TEL](image/label.png)
 # Visualization Results
 ![TEL](image/output.png)
 # Requirements
