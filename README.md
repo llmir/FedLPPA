@@ -54,7 +54,7 @@ cd FedLPPA
 
 ## 2. Create a conda environment
 ``` bash
-conda env create -n fed39v2 -f fed39v2.yaml
+conda env create -n fed39v2 -f fedlppa.yaml
 conda activate fed39v2
 ```
 ## 3. Data Preparation
