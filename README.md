@@ -27,7 +27,7 @@ The official implementation of the paper: [**FedLPPA: Learning Personalized Prom
 
 
 ## Details of Training set
-The detailed information of datasets can be found in the [paper](https://arxiv.org/abs/2402.17502)
+The detailed information of datasets can be found in [paper](https://arxiv.org/abs/2402.17502)
 
 # Visualization Results
 
