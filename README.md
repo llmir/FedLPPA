@@ -85,15 +85,16 @@ python flower_pCE_2D_v4_FedLPPA.py --root_path ../data/FAZ_h5 --num_classes 2 --
 - batch_size: 12.
 - image_size: Default value is 256.
 - exp: save_path of models and 'log' file.
-- server_address: Server communication port. If you train the server model and client models in one server, please set it to the similar format '127.0.0.1:8091'
+- server_address: Server communication port. If you train the server model and client models in one server, please set it to the similar format '127.0.0.1:8091' (
+note that different experiments cannot use the same port).
 - strategy: Choose a federated learning strategy, i.e., FedAvg, FedBN, FedRep and FedLPPA (FedUniv2.1).
-- prompt: employ learnable prompts or one-hot. Two formats 'universal' or 'onehot'
-- attention: attention module selection
+- prompt: employ learnable prompts or one-hot. Two formats 'universal' or 'onehot'.
+- attention: attention module selection.
 - dual_init: Select a aggregated strategy.
-- min_num_clients: The total number of clients
-- label_prompt: 0 or 1 , use or not use the sparse label prompts
-- role: 'Server' or 'Client'
-- cid: client_id
+- min_num_clients: The total number of clients.
+- label_prompt: 0 or 1 , use or not use the sparse label prompts.
+- role: 'Server' or 'Client'.
+- cid: client_id.
 - sup_type: Choose the format of sparse annotation.
 
 The one-click automatic script and comparative methods will be included in subsequent updates.
