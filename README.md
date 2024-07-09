@@ -61,6 +61,7 @@ Download the datasets to the dir 'FedLPPA/data' in the form of '.h5'.
 
 
 ## 4. Train the model
+We first disclose the FedAvg and FedLPPA in 'train.sh'. The other comparative methods' scripts will be included in subsequent updates.
 ``` bash
 ##Server
 python flower_pCE_2D_v4_FedLPPA.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet_univ5 --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role server --client client_all --sup_type mask --gpu 0
@@ -97,8 +98,8 @@ note that different experiments cannot use the same port).
 - cid: client_id.
 - sup_type: Choose the format of sparse annotation.
 
-We will first disclose the FedAvg and FedLPPA in 'run.sh'. The other comparative methods' scripts will be included in subsequent updates.
 ## 5. Test the model
+The detailed command lines can be found in [here](https://github.com/llmir/FedLPPA/blob/master/code_v4/test.sh)
 ``` bash
 python -u test_client4onemod_FL_Personalize.py --client client1 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5/test/ --img_class faz --exp faz/ --min_num_clients 5 --cid 1 --model unet_univ5
 ```
