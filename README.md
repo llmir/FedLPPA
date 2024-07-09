@@ -99,10 +99,11 @@ note that different experiments cannot use the same port).
 - sup_type: Choose the format of sparse annotation.
 
 ## 5. Test the model
-The detailed command lines can be found in [here](https://github.com/llmir/FedLPPA/blob/master/code_v4/test.sh)
+
 ``` bash
 python -u test_client4onemod_FL_Personalize.py --client client1 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5/test/ --img_class faz --exp faz/ --min_num_clients 5 --cid 1 --model unet_univ5
 ```
+Other samples can be found in [here](https://github.com/llmir/FedLPPA/blob/master/code_v4/test.sh).
 
 # Acknowledgement
 * [flower](https://github.com/mher/flower)
