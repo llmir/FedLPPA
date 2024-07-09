@@ -1,34 +1,39 @@
-python flower_runner.py --port 8094 --procedure flower_pCE_2D_GateCRFMsacleTreeEnergyLoss_Ours --exp faz/FL_WeaklySeg_pCE_flower_FedALALC_Ours --base_lr 0.01 --img_class faz --model unet_lc_multihead --gpus 0 0 0 0 0 0 --iters 5 --eval_iters 5 --rep_iters 2 --alpha 0.1 --img_size 256 --strategy FedALALC
+#FedAvg
+##Server
+python flower_pCE_2D_v4_auxpCE --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedAvg --model unet --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedAvg --min_num_clients 5 --role server --client client_all --sup_type mask --gpu 0 --img_size 256
+
+##Site A
+python flower_pCE_2D_v4_auxpCE --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedAvg --model unet --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedAvg --min_num_clients 5 --role client --cid 0 --client client1 --sup_type scribble_noisy --gpu 0 --img_size 256
+
+##Site B
+python flower_pCE_2D_v4_auxpCE --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedAvg --model unet --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedAvg --min_num_clients 5 --role client --cid 1 --client client2 --sup_type keypoint --gpu 0 --img_size 256
+
+##Site C
+python flower_pCE_2D_v4_auxpCE --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedAvg --model unet --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedAvg --min_num_clients 5 --role client --cid 2 --client client3 --sup_type block --gpu 1 --img_size 256
+
+##Site D
+python flower_pCE_2D_v4_auxpCE --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedAvg --model unet --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedAvg --min_num_clients 5 --role client --cid 3 --client client4 --sup_type box --gpu 1 --img_size 256
+
+##Site E
+python flower_pCE_2D_v4_auxpCE --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedAvg --model unet --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedAvg --min_num_clients 5 --role client --cid 4 --client client5 --sup_type scribble --gpu 2 --img_size 256
 
 
 
+# FedLPPA (Ours)
+##Server
+python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role server --client client_all --sup_type mask --gpu 0
 
-# #prostate
-# #pCE Mask(Full)
-python Unet_pCE.py --root_path ../data/Prostate_h5 --exp prostate_LFL/Unet_pCE_test_SGD_0.01 --client client1 --sup_type mask --model unet --max_iterations 30000 --batch_size 12 --in_chns 1 --num_classes 2 --base_lr 0.01 --gpus 0 --img_class prostate
+##Site A
+python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role client --cid 0 --client client1 --sup_type scribble_noisy --gpu 1
 
-python Unet_pCE.py --root_path ../data/Prostate_h5 --exp prostate_LFL/Unet_pCE_test_SGD_0.01 --client client2 --sup_type mask --model unet --max_iterations 30000 --batch_size 12 --in_chns 1 --num_classes 2 --base_lr 0.01 --gpus 0 --img_class prostate
+##Site B
+python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role client --cid 1 --client client2 --sup_type keypoint --gpu 2
 
-python Unet_pCE.py --root_path ../data/Prostate_h5 --exp prostate_LFL/Unet_pCE_test_SGD_0.01 --client client3 --sup_type mask --model unet --max_iterations 30000 --batch_size 12 --in_chns 1 --num_classes 2 --base_lr 0.01 --gpus 1 --img_class prostate
+##Site C
+python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role client --cid 2 --client client3 --sup_type block --gpu 3
 
-python Unet_pCE.py --root_path ../data/Prostate_h5 --exp prostate_LFL/Unet_pCE_test_SGD_0.01 --client client4 --sup_type mask --model unet --max_iterations 30000 --batch_size 12 --in_chns 1 --num_classes 2 --base_lr 0.01 --gpus 1 --img_class prostate
+##Site D
+python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role client --cid 3 --client client4 --sup_type box --gpu 4
 
-python Unet_pCE.py --root_path ../data/Prostate_h5 --exp prostate_LFL/Unet_pCE_test_SGD_0.01 --client client5 --sup_type mask --model unet --max_iterations 30000 --batch_size 12 --in_chns 1 --num_classes 2 --base_lr 0.01 --gpus 2 --img_class prostate
-
-python Unet_pCE.py --root_path ../data/Prostate_h5 --exp prostate_LFL/Unet_pCE_test_SGD_0.01 --client client6 --sup_type mask --model unet --max_iterations 30000 --batch_size 12 --in_chns 1 --num_classes 2 --base_lr 0.01 --gpus 2 --img_class prostate
-
-
-
-# #prostate
-# #pCE Mask(WSL)
-python Unet_pCE.py --root_path ../data/Prostate_h5 --exp prostate_LFL/Unet_pCE_test_AdamW_0.001 --client client1 --sup_type block --model unet --max_iterations 30000 --batch_size 12 --in_chns 1 --num_classes 2 --base_lr 0.001 --gpus 4 --img_class prostate
-
-python Unet_pCE.py --root_path ../data/Prostate_h5 --exp prostate_LFL/Unet_pCE_test_AdamW_0.001 --client client2 --sup_type keypoint --model unet --max_iterations 30000 --batch_size 12 --in_chns 1 --num_classes 2 --base_lr 0.001 --gpus 4 --img_class prostate
-
-python Unet_pCE.py --root_path ../data/Prostate_h5 --exp prostate_LFL/Unet_pCE_test_AdamW_0.001 --client client3 --sup_type scribble --model unet --max_iterations 30000 --batch_size 12 --in_chns 1 --num_classes 2 --base_lr 0.001 --gpus 5 --img_class prostate
-
-python Unet_pCE.py --root_path ../data/Prostate_h5 --exp prostate_LFL/Unet_pCE_test_AdamW_0.001 --client client4 --sup_type keypoint --model unet --max_iterations 30000 --batch_size 12 --in_chns 1 --num_classes 2 --base_lr 0.001 --gpus 5 --img_class prostate
-
-python Unet_pCE.py --root_path ../data/Prostate_h5 --exp prostate_LFL/Unet_pCE_test_AdamW_0.001 --client client5 --sup_type scribble --model unet --max_iterations 30000 --batch_size 12 --in_chns 1 --num_classes 2 --base_lr 0.001 --gpus 6 --img_class prostate
-
-python Unet_pCE.py --root_path ../data/Prostate_h5 --exp prostate_LFL/Unet_pCE_test_AdamW_0.001 --client client6 --sup_type box --model unet --max_iterations 30000 --batch_size 12 --in_chns 1 --num_classes 2 --base_lr 0.001 --gpus 6 --img_class prostate
+##Site E
+python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role client --cid 4 --client client5 --sup_type scribble --gpu 5
