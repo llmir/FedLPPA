@@ -96,7 +96,7 @@ python flower_pCE_2D_v4_auxpCE_GatedCRFLoss.py --root_path ../data/FAZ_h5 --num_
 - cid: client_id
 - sup_type: Choose the format of sparse annotation.
 
-The one-click automatic script similar to the [FedICRA](https://github.com/llmir/FedICRA/tree/master?tab=readme-ov-file#4-train-the-model) 'Train the model' will be included in subsequent updates.
+The one-click automatic script and comparative methods will be included in subsequent updates.
 ## 5. Test the model
 ``` bash
 python -u test_client4onemod_FL_Personalize.py --client client1 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5/test/ --img_class faz --exp faz/ --min_num_clients 5 --cid 1 --model unet_univ5
