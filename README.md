@@ -58,6 +58,7 @@ conda activate fed39v2
 ```
 ## 3. Data Preparation
 You can download the datasets with different formats of sparsely-supervised annotations to the dir 'FedLPPA/data' in the form of '.h5'.
+
 The automated scripts for generating sparsely-supervised annotations will be included in subsequent updates.
 
 
