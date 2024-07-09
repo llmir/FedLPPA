@@ -97,7 +97,7 @@ note that different experiments cannot use the same port).
 - cid: client_id.
 - sup_type: Choose the format of sparse annotation.
 
-The one-click automatic script and comparative methods will be included in subsequent updates.
+We will first disclose the FedAvg and FedLPPA in 'run.sh'. The other comparative methods' scripts will be included in subsequent updates.
 ## 5. Test the model
 ``` bash
 python -u test_client4onemod_FL_Personalize.py --client client1 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5/test/ --img_class faz --exp faz/ --min_num_clients 5 --cid 1 --model unet_univ5
