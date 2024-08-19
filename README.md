@@ -21,7 +21,7 @@ The official implementation of the paper: [**FedLPPA: Learning Personalized Prom
       <td align="center"><a href="https://drive.google.com/drive/folders/10lZwgMFT6gV-Tj6gpFfd-TVJC3b9_808?usp=drive_link">Download</a></td> 
       <td align="center"><a href="">Download</a></td>  
       <td align="center"><a href="https://drive.google.com/drive/folders/1xB3X0oM3fg5QIZ86LQTpHjlgmHURREV3?usp=drive_link">Download</a></td>  
-      <td align="center"><a>...</a></td>  
+      <td align="center"><a>N/A</a></td>  
     </tr>
     <tr>
       <td align="center">".h5"</td>
