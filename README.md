@@ -17,14 +17,14 @@ The official implementation of the paper: [**FedLPPA: Learning Personalized Prom
       <td align="center">Prostate MRI</td>
     </tr>
     <tr>
-      <td align="center">".png"</td>
+      <td align="center">*.png*</td>
       <td align="center"><a href="https://drive.google.com/drive/folders/10lZwgMFT6gV-Tj6gpFfd-TVJC3b9_808?usp=drive_link">Download</a></td> 
       <td align="center"><a href="">Download</a></td>  
       <td align="center"><a href="https://drive.google.com/drive/folders/1xB3X0oM3fg5QIZ86LQTpHjlgmHURREV3?usp=drive_link">Download</a></td>  
       <td align="center"><a>N/A</a></td>  
     </tr>
     <tr>
-      <td align="center">".h5"</td>
+      <td align="center">*.h5*</td>
       <td align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td> 
       <td align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td>  
       <td align="center"><a href="https://drive.google.com/drive/folders/1GsaJXeE_5yNPmd4DLDx-POO2Qr24szLK?usp=drive_link">Download</a></td>  
