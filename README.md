@@ -10,12 +10,21 @@ The official implementation of the paper: [**FedLPPA: Learning Personalized Prom
 <table>
   <tbody>
     <tr>
+      <td align="center"></td>
       <td align="center">Fundus</td>
       <td align="center">OCTA</td>
       <td align="center">Endoscopy</td>
       <td align="center">Prostate MRI</td>
     </tr>
     <tr>
+      <td align="center">'.png'</td>
+      <td align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td> 
+      <td align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td>  
+      <td align="center"><a href="https://drive.google.com/drive/folders/1GsaJXeE_5yNPmd4DLDx-POO2Qr24szLK?usp=drive_link">Download</a></td>  
+      <td align="center"><a href="https://drive.google.com/drive/folders/1rCQMrzSKPcsHjAGrgJUqszXityyho4JH?usp=drive_link">Download</a></td>  
+    </tr>
+    <tr>
+      <td align="center">'.h5'</td>
       <td align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td> 
       <td align="center"><a href="https://github.com/llmir/FedICRA/tree/master/data">Download</a></td>  
       <td align="center"><a href="https://drive.google.com/drive/folders/1GsaJXeE_5yNPmd4DLDx-POO2Qr24szLK?usp=drive_link">Download</a></td>  
