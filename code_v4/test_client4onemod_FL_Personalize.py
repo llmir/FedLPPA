@@ -328,10 +328,13 @@ def Inference(FLAGS):
     cudnn.deterministic = True
     net = net_factory(FLAGS,net_type=FLAGS.model, in_chns=FLAGS.in_chns,
                       class_num=FLAGS.num_classes)
+    ## Personalizatioon Federated Learning test model path (FedLPPA, FedLC)
     # save_mode_path = os.path.join(
     #     snapshot_path, '{}_async_{}_best_model.pth'.format(FLAGS.client,FLAGS.model).replace("client","client_"))
     # save_mode_path = os.path.join(
     #     snapshot_path, '{}_{}_best_model.pth'.format(FLAGS.client,FLAGS.model).replace("client","client_"))
+  
+    ## (FedAvg FedUni) test model path
     save_mode_path = os.path.join(
         snapshot_path, 'unet_best_model.pth')
     net.load_state_dict(torch.load(save_mode_path))
