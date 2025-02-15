@@ -337,6 +337,8 @@ def Inference(FLAGS):
     ## (FedAvg FedUni) test model path
     save_mode_path = os.path.join(
         snapshot_path, 'unet_best_model.pth')
+  
+  
     net.load_state_dict(torch.load(save_mode_path))
     print("init weight from {}".format(save_mode_path))
     net.eval()
