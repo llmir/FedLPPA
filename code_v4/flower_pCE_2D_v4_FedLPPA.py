@@ -175,17 +175,15 @@ class MyClient(BaseClient):
                 #     three_channel = volume_batch
                 # three_channel = three_channel.cuda()
                 # out_tree_loss, heatmaps_tree = tree_loss(outputs, three_channel, high_feats, unlabeled_RoIs, self.args.tree_loss_weight)
-                # ##GatedCRFLoss
-                # out_gatedcrf = gatecrf_loss(
-                #     outputs_soft,
-                #     loss_gatedcrf_kernels_desc,
-                #     loss_gatedcrf_radius,
-                #     volume_batch,
-                #     self.args.img_size,
-                #     self.args.img_size
-                # )["loss"]
-                loss = loss_ce
-                # loss = loss_ce
+                out_gatedcrf = gatecrf_loss(
+                    outputs_soft,
+                    loss_gatedcrf_kernels_desc,
+                    loss_gatedcrf_radius,
+                    volume_batch,
+                    self.args.img_size,
+                    self.args.img_size
+                )["loss"]
+                loss = loss_ce + 0.1 * out_gatedcrf
 
                 # calculate strategy-specific metrics
                 if self.args.strategy == 'FedProx' and i_iter > 0:
