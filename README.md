@@ -128,7 +128,7 @@ Note: During testing, proceed by selecting the distinct model evaluation pathway
 * [FedLC](https://github.com/jcwang123/FedLC)
 
 # Citation
-If you find FedLPPA useful in your research, please consider citing:
+If you find [FedLPPA](https://ieeexplore.ieee.org/document/10721443) useful in your research, please consider citing:
 ```
 @ARTICLE{10721443,
   author={Lin, Li and Liu, Yixiang and Wu, Jiewei and Cheng, Pujin and Cai, Zhiyuan and Wong, Kenneth K. Y. and Tang, Xiaoying},
