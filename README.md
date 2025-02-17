@@ -119,7 +119,7 @@ python -u test_client4onemod_FL_Personalize.py --client client1 --num_classes 2 
 ```
 Other samples can be found in [here](https://github.com/llmir/FedLPPA/blob/master/code_v4/test.sh).
 
-Note: During testing, proceed by selecting the distinct model evaluation pathways ('mode_save_path') corresponding to your specific framework configuration. Comprehensive guidance may be found in the code documentation at [line 384](https://github.com/llmir/FedLPPA/blob/master/code_v4/test_client4onemod_FL_Personalize.py).
+Note: During testing, proceed by selecting the distinct model evaluation pathways ('mode_save_path') corresponding to your specific framework configuration. Comprehensive guidance may be found in the code at [line 330](https://github.com/llmir/FedLPPA/blob/master/code_v4/test_client4onemod_FL_Personalize.py).
 
 # Acknowledgement
 * [flower](https://github.com/mher/flower)
