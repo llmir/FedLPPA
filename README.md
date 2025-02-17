@@ -130,12 +130,17 @@ Note: During testing, proceed by selecting the distinct model evaluation pathway
 # Citation
 If you find FedLPPA useful in your research, please consider citing:
 ```
-@article{lin2024fedlppa,
-  title={FedLPPA: Learning Personalized Prompt and Aggregation for Federated Weakly-supervised Medical Image Segmentation},
-  author={Lin, Li and Liu, Yixiang and Wu, Jiewei and Cheng, Pujin and Cai, Zhiyuan and Wong, Kenneth KY and Tang, Xiaoying},
-  journal={arXiv preprint arXiv:2402.17502},
-  year={2024}
-}
+@ARTICLE{10721443,
+  author={Lin, Li and Liu, Yixiang and Wu, Jiewei and Cheng, Pujin and Cai, Zhiyuan and Wong, Kenneth K. Y. and Tang, Xiaoying},
+  journal={IEEE Transactions on Medical Imaging}, 
+  title={FedLPPA: Learning Personalized Prompt and Aggregation for Federated Weakly-supervised Medical Image Segmentation}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-1},
+  keywords={Image segmentation;Data models;Training;Annotations;Computational modeling;Medical diagnostic imaging;Federated learning;Decoding;Costs;Context modeling;Federated learning;Prompt-driven personalization;Heterogeneous weak supervision;Learnable aggregation;Medical image segmentation},
+  doi={10.1109/TMI.2024.3483221}}
+
 ```
 If you have any questions, please feel free to contact us.
 
