@@ -1,5 +1,5 @@
 # FedLPPA: Learning Personalized Prompt and Aggregation for Federated Weakly-supervised Medical Image Segmentation
-The official implementation of the paper: [**FedLPPA: Learning Personalized Prompt and Aggregation for Federated Weakly-supervised Medical Image Segmentation**](https://arxiv.org/abs/2402.17502)
+The official implementation of the paper: **FedLPPA: Learning Personalized Prompt and Aggregation for Federated Weakly-supervised Medical Image Segmentation**([arxiv](https://arxiv.org/abs/2402.17502), [Early Access](https://ieeexplore.ieee.org/document/10721443))
 ![TEL](image/framework.png)
 
 # 🔔News
