@@ -102,8 +102,10 @@ class BaseClient(fl.client.Client):
             metrics=metrics_
         )
 
+
     def _train(self, config):
         raise NotImplementedError
+
 
     def _validate(self, config):
         self.model.eval()
@@ -125,6 +127,7 @@ class BaseClient(fl.client.Client):
                     self.model.meta_flag = True
 
             print(self.args.cid, self.model.meta_flag, self.model.lam)
+
 
         if val_metrics['val_mean_dice'] > self.best_performance:
             self.best_performance = val_metrics['val_mean_dice']
@@ -624,7 +627,7 @@ class MyServer(Server):
                 print(iter_num, 'performance_array', performance_array)
                 print(iter_num, 'metafed_weight_array', metafed_weight_array)'''
 
-            # FedUniV2/FedUniV2.1 parameters
+            # FedUniV2/FedUniV2.1 (FedLPPA) parameters
             if self.args.strategy in ['FedUniV2', 'FedUniV2.1']:
                 weight_list = []
                 num_examples_list = []
@@ -1468,6 +1471,8 @@ class MyModel(nn.Module):
                         all_state_dict_temp['server'] = {
                             k: torch.tensor(v) for k, v in zip(self.model.state_dict().keys(), weights[start_idx:end_idx])
                         }
+# Prompt ablation study for Rebuttal
+# #####no prompt
                         #performance_idx = num_weights + self.args.min_num_clients * num_weights
                         #performance_list = weights[performance_idx]
                         #print(self.args.cid, performance_list)
@@ -1477,7 +1482,7 @@ class MyModel(nn.Module):
                         # print(self.args.cid, prompts_array.shape)
 
 
-                        
+
 # #####distribution + uni
 
                         prompt_idx_distribution = self.args.min_num_clients * num_weights
@@ -1568,7 +1573,7 @@ class MyModel(nn.Module):
 
             self.model.load_state_dict(server_state_dict, strict=False)
             temp_model = copy.deepcopy(self.model)
-
+            # Local Personalization 
             # p_keywords = ['out_conv', 'up4', 'up3', 'up2','up1','down4','down3']
             p_keywords = ['out_conv', 'up4', 'up3', 'up2','up1']
             # p_keywords = ['out_conv', 'up4', 'up3']
