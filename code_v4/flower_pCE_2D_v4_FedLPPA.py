@@ -36,7 +36,7 @@ from networks.net_factory import net_factory
 from utils import losses, metrics, ramps
 from val_2D import test_single_volume, test_single_volume_ds
 from utils.gate_crf_loss import ModelLossSemsegGatedCRF
-from flower_common_v4_addprostate import (BaseClient, MyModel, fit_metrics_aggregation_fn, evaluate, get_evaluate_fn,
+from flower_common_v4 import (BaseClient, MyModel, fit_metrics_aggregation_fn, TreeEnergyLoss, MScaleRecurveTreeEnergyLoss, evaluate, get_evaluate_fn,
                         get_strategy, MyServer, VAL_METRICS, get_fedrep_local_keys, get_evaluate_metrics_aggregation_fn,
                         get_bn_stats)
 
@@ -71,11 +71,10 @@ class MyClient(BaseClient):
         else:
             
             optimizer = optim.AdamW(self.model.parameters(),lr=self.current_lr,betas=(0.9, 0.999),eps=1e-8,weight_decay=1e-2, amsgrad=False)
-            # optimizer = optim.Adam(self.model.parameters(), lr=self.current_lr, betas=(0.9, 0.99),weight_decay=1e-2, amsgrad=False)
 
         ce_loss = CrossEntropyLoss(ignore_index=self.args.num_classes)
-        # tree_loss = TreeEnergyLoss()
-        # tree_loss_muti = MScaleRecurveTreeEnergyLoss()
+        tree_loss = TreeEnergyLoss()
+        tree_loss_muti = MScaleRecurveTreeEnergyLoss()
         gatecrf_loss = ModelLossSemsegGatedCRF()
         dice_loss = losses.pDLoss(self.args.num_classes, ignore_index=self.args.num_classes)
         mse_loss = MSELoss()
@@ -108,7 +107,7 @@ class MyClient(BaseClient):
             sampled_batch = self.sampled_batches[idx]
             # print(self.current_iter, i_iter, idx)
 
-            if self.args.img_class == 'faz' or self.args.img_class == 'prostate':
+            if self.args.img_class == 'faz':
                 volume_batch, label_batch = sampled_batch['image'].unsqueeze(1), sampled_batch['label']
                 volume_batch, label_batch = volume_batch.cuda(), label_batch.cuda()
             elif self.args.img_class == 'odoc' or self.args.img_class == 'polyp':
@@ -164,8 +163,8 @@ class MyClient(BaseClient):
 
                 outputs_soft = torch.softmax(outputs, dim=1)
                 loss_ce_seg = ce_loss(outputs, label_batch[:].long())
-                # loss_ce_auxiliary = ce_loss(outputs_auxiliary, label_batch[:].long())
-                loss_ce = loss_ce_seg
+                loss_ce_auxiliary = ce_loss(outputs_auxiliary, label_batch[:].long())
+                loss_ce = 0.5 * (loss_ce_seg + loss_ce_auxiliary)
 # TreeEnergyLoss
                 # unlabeled_RoIs = (sampled_batch['label'] == self.args.num_classes)
                 # unlabeled_RoIs = unlabeled_RoIs.cuda()
@@ -184,6 +183,7 @@ class MyClient(BaseClient):
                     self.args.img_size
                 )["loss"]
                 loss = loss_ce + 0.1 * out_gatedcrf
+                # loss = loss_ce
 
                 # calculate strategy-specific metrics
                 if self.args.strategy == 'FedProx' and i_iter > 0:
@@ -320,11 +320,11 @@ class MyClient(BaseClient):
             self.current_lr = lr_
 
         # pack general metrics
-        image = volume_batch[0, :, :, :]
+        image = volume_batch[1, :, :, :]
         image = (image - image.min()) / (image.max() - image.min())
         outputs = torch.argmax(torch.softmax(outputs, dim=1), dim=1, keepdim=True)
-        outputs = outputs[0, ...] * 50
-        labs = label_batch[0, ...].unsqueeze(0) * 50
+        outputs = outputs[1, ...] * 50
+        labs = label_batch[1, ...].unsqueeze(0) * 50
         if self.args.img_class == 'odoc' or self.args.img_class == 'polyp':
             outputs, labs = outputs.repeat(3, 1, 1), labs.repeat(3, 1, 1)
 
@@ -372,8 +372,8 @@ class MyClient(BaseClient):
                 metrics_['client_{}_distance_prompt_distribution'.format(self.cid)] = distance_prompts_dis.item()
                 metrics_['client_{}_distance_prompt_uni'.format(self.cid)] = distance_prompts_uni.item()
             outputs_auxiliary = torch.argmax(torch.softmax(outputs_auxiliary, dim=1), dim=1, keepdim=True)
-            outputs_auxiliary = outputs_auxiliary[0, ...] * 127
-            pseudo_labs = pseudo_label[0, ...].unsqueeze(0) * 127
+            outputs_auxiliary = outputs_auxiliary[1, ...] * 50
+            pseudo_labs = pseudo_label[1, ...].unsqueeze(0) * 50
             if self.args.img_class == 'odoc' or self.args.img_class == 'polyp':
                 outputs_auxiliary, pseudo_labs = outputs_auxiliary.repeat(3, 1, 1), pseudo_labs.repeat(3, 1, 1)
             metrics_['client_{}_Prediction2'.format(self.cid)] = fl.common.ndarray_to_bytes(outputs_auxiliary.cpu().numpy())
@@ -382,7 +382,7 @@ class MyClient(BaseClient):
         return loss.item(), metrics_
 
 
-from flower_common_v4_addprostate import PretrainDataset
+from flower_common import PretrainDataset
 from torchvision.utils import make_grid
 from tqdm import tqdm
 def pretrain_model(args, writer, worker_init_fn):
@@ -408,7 +408,7 @@ def pretrain_model(args, writer, worker_init_fn):
     model.train()
     for epoch_num in iterator:
         for i_batch, sampled_batch in enumerate(trainloader):
-            if args.img_class == 'faz' or args.img_class == 'prostate':
+            if args.img_class == 'faz':
                 volume_batch, label_batch = sampled_batch['image'].unsqueeze(1), sampled_batch['label']
                 volume_batch, label_batch = volume_batch.cuda(), label_batch.cuda()
             elif args.img_class == 'odoc' or args.img_class == 'polyp':
@@ -435,11 +435,11 @@ def pretrain_model(args, writer, worker_init_fn):
 
 
             if iter_num % args.iters == 0:
-                image = volume_batch[0, :, :, :]
+                image = volume_batch[1, :, :, :]
                 image = (image - image.min()) / (image.max() - image.min())
                 outputs = torch.argmax(torch.softmax(outputs, dim=1), dim=1, keepdim=True)
-                outputs = outputs[0, ...] * 50
-                labs = label_batch[0, ...].unsqueeze(0) * 50
+                outputs = outputs[1, ...] * 50
+                labs = label_batch[1, ...].unsqueeze(0) * 50
                 if args.img_class == 'odoc' or args.img_class == 'polyp':
                     outputs, labs = outputs.repeat(3, 1, 1), labs.repeat(3, 1, 1)
 
@@ -606,8 +606,8 @@ def main():
         assert args.dual_init in ['random', 'adjacent', 'nearest', 'aggregated']
 
     assert args.role in ['server', 'client']
-    assert args.img_class in ['odoc', 'faz', 'polyp', 'prostate']
-    if args.img_class == 'faz' or args.img_class == 'prostate':
+    assert args.img_class in ['odoc', 'faz', 'polyp']
+    if args.img_class == 'faz':
         assert args.sup_type in ['mask', 'scribble', 'scribble_noisy', 'block', 'box', 'keypoint']
     else:
         assert args.sup_type in ['mask', 'scribble', 'scribble_noisy', 'block', 'box', 'keypoint']
