@@ -3,10 +3,10 @@ from networks.pnet import PNet2D
 from networks.unet import UNet, UNet_320, UNet_DS, UNet_CCT, UNet_CCT_3H, UNet_Head, UNet_MultiHead, \
                             UNet_LC, UNet_LC_MultiHead,UNet_LC_MultiHead_Two, UNet_Uni, UNet_UniV2, UNet_UniV3, UNet_UniV4, UNet_UniV5, UNet_Univ5_Ablation, UNet_UniV5_WO_Uni_Prompt, UNet_UniV5_AttentionConcat, UNet_LC_Auxi
 
-from utils.TreeEnergyLoss.lib.models.nets.fcnet import FcnNet
-from utils.TreeEnergyLoss.lib.models.nets.treefcn import TreeFCN
-from utils.TreeEnergyLoss.lib.models.nets.deeplabv3plus import DeepLabV3Plus
-from utils.TreeEnergyLoss.lib.utils.tools.configer import Configer
+# from utils.TreeEnergyLoss.lib.models.nets.fcnet import FcnNet
+# from utils.TreeEnergyLoss.lib.models.nets.treefcn import TreeFCN
+# from utils.TreeEnergyLoss.lib.models.nets.deeplabv3plus import DeepLabV3Plus
+# from utils.TreeEnergyLoss.lib.utils.tools.configer import Configer
 
 
 def net_factory(args, net_type="unet", in_chns=1, class_num=3):
@@ -29,62 +29,6 @@ def net_factory(args, net_type="unet", in_chns=1, class_num=3):
         net = UNet_Head(in_chns=in_chns, class_num=class_num).cuda()
     elif net_type == "unet_multihead":
         net = UNet_MultiHead(in_chns=in_chns, class_num=class_num).cuda()
-    elif net_type == "fcnet":
-        config_dict = {
-            "data": {
-                "num_classes": class_num
-            },
-            "network": {
-                "backbone": "deepbase_resnet101_dilated8",
-                "pretrained": None,
-                "bn_type": "torchbn",
-                "in_chns": in_chns
-            }
-        }
-        net = FcnNet(Configer(config_dict=config_dict)).cuda()
-    elif net_type == "treefcn":
-        config_dict = {
-            "data": {
-                "num_classes": class_num
-            },
-            "network": {
-                "backbone": "deepbase_resnet101_dilated8",
-                "pretrained": None,
-                "stride": 8,
-                "bn_type": "torchbn",
-                "in_chns": in_chns,
-                "business_channel_num": 512,
-                "embed_channel_num": 256,
-                "block_channel_nums": [256, 512, 1024, 2048],
-                "tree_filter_group_num": 16,
-            },
-            "tree_loss": {
-                "params": {
-                    "enable_high_level": True
-                }
-            }
-        }
-        net = TreeFCN(Configer(config_dict=config_dict)).cuda()
-    elif net_type == "deeplabv3plus":
-        config_dict = {
-            "data": {
-                "num_classes": class_num
-            },
-            "network": {
-                "backbone": "deepbase_resnet101_dilated8",
-                "multi_grid": [1, 1, 1],
-                "pretrained": None,
-                "stride": 8,
-                "bn_type": "torchbn",
-                "in_chns": in_chns
-            },
-            "tree_loss": {
-                "params": {
-                    "enable_high_level": True
-                }
-            }
-        }
-        net = DeepLabV3Plus(Configer(config_dict=config_dict)).cuda()
     elif net_type == "unet_lc":
         net = UNet_LC(in_chns=in_chns, class_num=class_num, pcs_num=1, emb_num=args.min_num_clients,
                     client_num=args.min_num_clients, client_id=args.cid).cuda()
