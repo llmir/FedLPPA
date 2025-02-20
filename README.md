@@ -69,7 +69,7 @@ conda env create -n fed39v2 -f fedlppa.yaml
 conda activate fed39v2
 ```
 ## 3. Data Preparation
-You can download the datasets with different formats of sparsely-supervised annotations to the dir 'FedLPPA/data' in the form of _.h5_.
+You can download the datasets with different formats of sparsely-supervised annotations to the dir '_FedLPPA/data_' in the form of _.h5_.
 
 The automated scripts for generating sparsely-supervised annotations will be included in subsequent updates.
 
