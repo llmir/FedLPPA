@@ -69,13 +69,13 @@ conda env create -n fed39v2 -f fedlppa.yaml
 conda activate fed39v2
 ```
 ## 3. Data Preparation
-You can download the datasets with different formats of sparsely-supervised annotations to the dir 'FedLPPA/data' in the form of '.h5'.
+You can download the datasets with different formats of sparsely-supervised annotations to the dir 'FedLPPA/data' in the form of _.h5_.
 
 The automated scripts for generating sparsely-supervised annotations will be included in subsequent updates.
 
 
 ## 4. Train the model
-We first disclose the FedAvg and FedLPPA in 'train.sh'. All comparison methods in the article are implemented in the code, please refer to the file ['flower_common_v4.py'](https://github.com/llmir/FedLPPA/blob/master/code_v4/flower_common_v4.py). The other scripts will be included in subsequent updates.
+We first disclose the FedAvg and FedLPPA in _train.sh_. All comparison methods in the article are implemented in the code, please refer to the file [_flower_common_v4.py_](https://github.com/llmir/FedLPPA/blob/master/code_v4/flower_common_v4.py). The other scripts will be included in subsequent updates.
 ``` bash
 ##Server
 python flower_pCE_2D_v4_FedLPPA.py --root_path ../data/FAZ_h5 --num_classes 2 --in_chns 1 --img_class faz --exp faz/FedLPPA --model unet_univ5 --max_iterations 30000 --iters 5 --eval_iters 5 --tsne_iters 200 --batch_size 12 --base_lr 0.01 --amp 0 --server_address 127.0.0.1:8091 --strategy FedUniV2.1 --min_num_clients 5 --img_size 256 --alpha 0.1 --beta 0.5 --prompt universal --attention dual --dual_init aggregated --label_prompt 1 --role server --client client_all --sup_type mask --gpu 0
@@ -119,8 +119,8 @@ python -u test_client4onemod_FL_Personalize.py --client client1 --num_classes 2 
 ```
 Other samples can be found in [here](https://github.com/llmir/FedLPPA/blob/master/code_v4/test.sh).
 
-Note: During testing, proceed by selecting the distinct model evaluation pathways ('mode_save_path') corresponding to your specific framework configuration. Some samples can be found in the '_test_client4onemod_FL_Personalize.py_' code at [line 330](https://github.com/llmir/FedLPPA/blob/master/code_v4/test_client4onemod_FL_Personalize.py).
-'{}\_async\_{}_best_model.pth' 
+Note: During testing, proceed by selecting the distinct model evaluation pathways ('_mode_save_path_') corresponding to your specific framework configuration. Some samples can be found in the '_test_client4onemod_FL_Personalize.py_' code at [line 330](https://github.com/llmir/FedLPPA/blob/master/code_v4/test_client4onemod_FL_Personalize.py). We use '_{}_async_{}_best_model.pth_' when testing personalized federated methods.
+
 
 # Acknowledgement
 * [flower](https://github.com/mher/flower)
