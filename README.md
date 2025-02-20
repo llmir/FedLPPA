@@ -119,7 +119,7 @@ python -u test_client4onemod_FL_Personalize.py --client client1 --num_classes 2 
 ```
 Other samples can be found in [here](https://github.com/llmir/FedLPPA/blob/master/code_v4/test.sh).
 
-Note: During testing, proceed by selecting the distinct model evaluation pathways ('_mode_save_path_') corresponding to your specific framework configuration. Some samples can be found in the '_test_client4onemod_FL_Personalize.py_' code at [line 330](https://github.com/llmir/FedLPPA/blob/master/code_v4/test_client4onemod_FL_Personalize.py). We use '_{}\__async_\_{}_best_model.pth_' when testing personalized federated methods.
+Note: During testing, proceed by selecting the distinct model evaluation pathways ('_mode_save_path_') corresponding to your specific framework configuration. Some samples can be found in the '_test_client4onemod_FL_Personalize.py_' code at [line 330](https://github.com/llmir/FedLPPA/blob/master/code_v4/test_client4onemod_FL_Personalize.py). We use '_{}\__async_\_{}\_best_model.pth_' when testing personalized federated methods.
 
 
 # Acknowledgement
