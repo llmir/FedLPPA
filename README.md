@@ -71,7 +71,7 @@ conda activate fed39v2
 ## 3. Data Preparation
 You can download the datasets with different formats of sparsely-supervised annotations to the dir '_FedLPPA/data_' in the form of _.h5_.
 
-Should you wish to use FedLPPA to train the models utilizing your own dataset, kindly proceed to restructure the implementation of th ['_BaseDataSets()_'](https://github.com/llmir/FedLPPA/blob/master/code_v4/dataloaders/dataset.py).
+Should you wish to use FedLPPA to train the models utilizing your own dataset, kindly proceed to restructure the implementation of ['_BaseDataSets()_'](https://github.com/llmir/FedLPPA/blob/master/code_v4/dataloaders/dataset.py).
 
 The automated scripts for generating sparsely-supervised annotations will be included in subsequent updates.
 
