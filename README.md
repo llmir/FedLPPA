@@ -121,7 +121,9 @@ python -u test_client4onemod_FL_Personalize.py --client client1 --num_classes 2 
 ```
 Other samples can be found in [here](https://github.com/llmir/FedLPPA/blob/master/code_v4/test.sh).
 
-Note: During testing, proceed by selecting the distinct model evaluation pathways ('_mode_save_path_') corresponding to your specific framework configuration. Some samples can be found in the '_test_client4onemod_FL_Personalize.py_' code at [line 330](https://github.com/llmir/FedLPPA/blob/master/code_v4/test_client4onemod_FL_Personalize.py). We use '_{}\__async_\_{}\_best_model.pth_' when testing personalized federated methods. You may alternatively employ the alternate pathway '_{}\_{}_\_best_model.pth_' to conduct experimentation testing, where the principal distinction lies in determining whether the federated model dispensed by the server has undergone training iterations on localized datasets (i.e., a localized fine-tuning operation).
+Note: During testing, proceed by selecting the distinct model evaluation pathways ('_mode_save_path_') corresponding to your specific framework configuration. Some samples can be found in the '_test_client4onemod_FL_Personalize.py_' code at [line 330](https://github.com/llmir/FedLPPA/blob/master/code_v4/test_client4onemod_FL_Personalize.py). We use '_{}\__async_\_{}\_best_model.pth_' when testing personalized federated methods.
+
+You can alternatively employ the alternate pathway '_{}\_{}_\_best_model.pth_' to conduct testing, where the principal distinction lies in determining whether the federated model dispensed by the server has undergone training iterations on localized datasets (i.e., a localized fine-tuning operation). It depends on how your FL experiments are set up.
  
 
 # Acknowledgement
