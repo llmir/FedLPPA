@@ -4,7 +4,7 @@ The official implementation of the paper: **FedLPPA: Learning Personalized Promp
 # 🔔News
 - 2024-10-15, 🎉🎉 Our paper "[FedLPPA: Learning Personalized Prompt and Aggregation for Federated Weakly-supervised Medical Image Segmentation](https://arxiv.org/pdf/2402.17502)" has been accepted by **IEEE Transactions on Medical Imaging (TMI)**.
 
-# Framework
+# 💡Framework
 ![TEL](image/framework.png)
 
 # 🌟 Why Cite This Work?
