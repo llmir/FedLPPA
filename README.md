@@ -31,6 +31,7 @@ The official implementation of the paper: **FedLPPA: Learning Personalized Promp
 ✔️ Annotation-efficient deep learning  
 ✔️ Personalized model aggregation strategies
 
+# Framework
 ![TEL](image/framework.png)
 
 # Datasets
