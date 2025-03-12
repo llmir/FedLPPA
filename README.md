@@ -166,7 +166,7 @@ If you find [FedLPPA](https://ieeexplore.ieee.org/document/10721443) useful in y
   doi={10.1109/TMI.2024.3483221}}
 
 ```
-If you have any questions, please feel free to contact us.
+If you have any questions, please feel free to contact us😊.
 
   
 
