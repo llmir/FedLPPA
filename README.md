@@ -27,7 +27,7 @@ The official implementation of the paper: **FedLPPA: Learning Personalized Promp
    - Establishes strong baselines for federated weakly supervised segmentation, validated on 12+ datasets with 2,500+ cases.
    - Open-source implementation accelerates research in privacy-preserving collaborative learning for healthcare.
 
-**Cite this work if you're researching**:  
+**This work provides insights for**:  
 ✔️ Federated learning with label heterogeneity  
 ✔️ Multi-center medical image analysis  
 ✔️ Weakly supervised segmentation  
