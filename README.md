@@ -9,25 +9,7 @@ The official implementation of the paper: **FedLPPA: Learning Personalized Promp
 
 # 🌟 Contributions (Why Cite This Work?)
 
-**FedLPPA represents a pioneering effort in federated medical image segmentation with heterogeneous weak supervision**, offering significant contributions to both research and clinical applications:
-
-1. 🚀 **First Unified Framework for Federated Weak Supervision**  
-   - The first work to address **heterogeneous weak supervision** (point/scribble/box/block annotations) in federated learning, overcoming annotation inconsistency across medical institutions while preserving data privacy.
-
-2. 🔥 **Triple Innovation for Practical Challenges**  
-   - **Tri-prompt Dual-attention Fusion**: Dynamically adapts to local data distributions and annotation sparsity through learnable universal/data-distribution prompts and fixed annotation-level prompts.
-   - **Prompt-Driven Personalization**: Uses prompt similarity to aggregate cross-site knowledge while maintaining site-specific characteristics.
-   - **Dual-Decoder Pseudo-Labeling**: Mitigates noise accumulation in weakly supervised learning through adaptive aggregation of complementary predictions.
-
-3. 🏆 **Clinical-Ready Performance**  
-   - Achieves **comparable accuracy to fully supervised centralized training** across 4 medical modalities (fundus/OCTA/endoscopy/MRI) while reducing annotation costs by 60-90%.
-   - Robust to severe data heterogeneity (domain shifts, varied annotation types, and supervision sparsity).
-
-4. 💡 **New Benchmark for Federated Medical AI**  
-   - Establishes strong baselines for federated weakly supervised segmentation, validated on 12+ datasets with 2,500+ cases.
-   - Open-source implementation accelerates research in privacy-preserving collaborative learning for healthcare.
-
-**This work provides insights for researchers exploring**:  
+**FedLPPA represents a pioneering effort in federated medical image segmentation with heterogeneous weak supervision**, offering significant contributions to both research and clinical applications, **This work provides insights for researchers exploring**:  
    - 🔍 Federated learning in annotation-heterogeneous environments  
    - 🏥 Multi-institutional medical imaging studies requiring privacy preservation  
    - 🎯 Label-efficient segmentation with sparse supervision  
