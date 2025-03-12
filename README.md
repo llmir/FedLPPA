@@ -28,12 +28,12 @@ The official implementation of the paper: **FedLPPA: Learning Personalized Promp
    - Open-source implementation accelerates research in privacy-preserving collaborative learning for healthcare.
 
 **This work provides insights for researchers exploring**:  
-   - 🔍Federated learning in annotation-heterogeneous environments  
-   - 🏥Multi-institutional medical imaging studies requiring privacy preservation  
-   - 🎯Label-efficient segmentation with sparse supervision  
-   - 🖌️Annotation cost reduction strategies for medical imaging  
-   - 🤝Adaptive model personalization techniques in distributed systems  
-   - 🔒Data security and interoperability solutions for healthcare AI  
+   - 🔍 Federated learning in annotation-heterogeneous environments  
+   - 🏥 Multi-institutional medical imaging studies requiring privacy preservation  
+   - 🎯 Label-efficient segmentation with sparse supervision  
+   - 🖌️ Annotation cost reduction strategies for medical imaging  
+   - 🤝 Adaptive model personalization techniques in distributed systems  
+   - 🔒 Data security and interoperability solutions for healthcare AI  
 
 **Particularly valuable for addressing**:  
    - Cross-institutional collaboration barriers ("data silos")  
