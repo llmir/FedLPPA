@@ -9,7 +9,9 @@ The official implementation of the paper: **FedLPPA: Learning Personalized Promp
 
 # 🌟 Contributions (Why Cite This Work?)
 
-**FedLPPA represents a pioneering effort in federated medical image segmentation with heterogeneous weak supervision**, offering significant contributions to both research and clinical applications. **This work provides insights for researchers exploring**:  
+FedLPPA represents a pioneering effort in federated medical image segmentation with heterogeneous weak supervision, offering significant contributions to both research and clinical applications. 
+
+**This work provides insights for researchers exploring**:  
    - 🔍 Federated learning in annotation-heterogeneous environments  
    - 🏥 Multi-institutional medical imaging studies requiring privacy preservation  
    - 🎯 Label-efficient segmentation with sparse supervision  
