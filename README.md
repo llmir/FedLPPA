@@ -14,7 +14,7 @@ The official implementation of the paper: **FedLPPA: Learning Personalized Promp
    - Limited expert annotations in clinical settings  
    - Domain shift challenges in multi-center studies  
    - Privacy-aware knowledge sharing paradigms
-   - 
+
 **We Hope**
 This work provides insights for researchers exploring:
    - 🔍 Federated learning in annotation-heterogeneous environments  
