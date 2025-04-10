@@ -16,6 +16,7 @@ The official implementation of the paper: **FedLPPA: Learning Personalized Promp
    - Privacy-aware knowledge sharing paradigms
 
 **We Hope**
+
 This work provides insights for researchers exploring:
    - 🔍 Federated learning in annotation-heterogeneous environments  
    - 🏥 Multi-institutional medical imaging studies requiring privacy preservation  
