@@ -15,9 +15,8 @@ The official implementation of the paper: **FedLPPA: Learning Personalized Promp
    - Domain shift challenges in multi-center studies  
    - Privacy-aware knowledge sharing paradigms
 
-**We Hope**
+**Provide Insights for Researchers Exploring the Directions**:
 
-This work provides insights for researchers exploring:
    - 🔍 Federated learning in annotation-heterogeneous environments  
    - 🏥 Multi-institutional medical imaging studies requiring privacy preservation  
    - 🎯 Label-efficient segmentation with sparse supervision  
