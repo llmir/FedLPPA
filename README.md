@@ -7,11 +7,16 @@ The official implementation of the paper: **FedLPPA: Learning Personalized Promp
 # 💡Framework
 ![TEL](image/framework.png)
 
-# 🌟 Contributions (Why Cite This Work?)
+# 🌟 Motivation
 
-FedLPPA represents a pioneering effort in federated medical image segmentation with heterogeneous weak supervision, offering significant contributions to both research and clinical applications. 
-
-**This work provides insights for researchers exploring**:  
+**Particularly Valuable for Addressing the Problems**:  
+   - Cross-institutional collaboration barriers ("data silos")  
+   - Limited expert annotations in clinical settings  
+   - Domain shift challenges in multi-center studies  
+   - Privacy-aware knowledge sharing paradigms
+   - 
+**We Hope**
+This work provides insights for researchers exploring:
    - 🔍 Federated learning in annotation-heterogeneous environments  
    - 🏥 Multi-institutional medical imaging studies requiring privacy preservation  
    - 🎯 Label-efficient segmentation with sparse supervision  
@@ -19,11 +24,7 @@ FedLPPA represents a pioneering effort in federated medical image segmentation w
    - 🤝 Adaptive model personalization techniques in distributed systems  
    - 🔒 Data security and interoperability solutions for healthcare AI  
 
-**Particularly valuable for addressing**:  
-   - Cross-institutional collaboration barriers ("data silos")  
-   - Limited expert annotations in clinical settings  
-   - Domain shift challenges in multi-center studies  
-   - Privacy-aware knowledge sharing paradigms
+
 
 
 
