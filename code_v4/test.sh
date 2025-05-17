@@ -1,9 +1,9 @@
 ## FAZ 
-# python -u test_client4onemod_FL_Personalize.py --client client0 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5 --img_class faz --exp faz/FedLPPA --model unet_univ5 --min_num_clients 5 --img_size 256 --sup_type scribble_noisy --label_prompt 1 &
-# python -u test_client4onemod_FL_Personalize.py --client client1 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5 --img_class faz --exp faz/FedLPPA --model unet_univ5 --min_num_clients 5 --img_size 256 --sup_type keypoint --label_prompt 1 &
-# python -u test_client4onemod_FL_Personalize.py --client client2 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5 --img_class faz --exp faz/FedLPPA --model unet_univ5 --min_num_clients 5 --img_size 256 --sup_type block --label_prompt 1 &
-# python -u test_client4onemod_FL_Personalize.py --client client3 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5 --img_class faz --exp faz/FedLPPA --model unet_univ5 --min_num_clients 5 --img_size 256 --sup_type box --label_prompt 1 &
-# python -u test_client4onemod_FL_Personalize.py --client client4 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5 --img_class faz --exp faz/FedLPPA --model unet_univ5 --min_num_clients 5 --img_size 256 --sup_type scribble --label_prompt 1
+# python -u test_client4onemod_FL_Personalize.py --client client0 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5 --img_class faz --exp faz/FedLPPA --model unet --min_num_clients 5 --img_size 256 --sup_type scribble_noisy --label_prompt 1 &
+# python -u test_client4onemod_FL_Personalize.py --client client1 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5 --img_class faz --exp faz/FedLPPA --model unet --min_num_clients 5 --img_size 256 --sup_type keypoint --label_prompt 1 &
+# python -u test_client4onemod_FL_Personalize.py --client client2 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5 --img_class faz --exp faz/FedLPPA --model unet --min_num_clients 5 --img_size 256 --sup_type block --label_prompt 1 &
+# python -u test_client4onemod_FL_Personalize.py --client client3 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5 --img_class faz --exp faz/FedLPPA --model unet --min_num_clients 5 --img_size 256 --sup_type box --label_prompt 1 &
+# python -u test_client4onemod_FL_Personalize.py --client client4 --num_classes 2 --in_chns 1 --root_path ../data/FAZ_h5 --img_class faz --exp faz/FedLPPA --model unet --min_num_clients 5 --img_size 256 --sup_type scribble --label_prompt 1
 
 ## ODOC
 
