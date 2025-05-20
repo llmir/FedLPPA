@@ -174,15 +174,8 @@ class MyClient(BaseClient):
                 #     three_channel = volume_batch
                 # three_channel = three_channel.cuda()
                 # out_tree_loss, heatmaps_tree = tree_loss(outputs, three_channel, high_feats, unlabeled_RoIs, self.args.tree_loss_weight)
-                out_gatedcrf = gatecrf_loss(
-                    outputs_soft,
-                    loss_gatedcrf_kernels_desc,
-                    loss_gatedcrf_radius,
-                    volume_batch,
-                    self.args.img_size,
-                    self.args.img_size
-                )["loss"]
-                loss = loss_ce + 0.1 * out_gatedcrf
+                
+                loss = loss_ce
                 # loss = loss_ce
 
                 # calculate strategy-specific metrics
@@ -270,6 +263,15 @@ class MyClient(BaseClient):
 
                 if self.args.strategy in ['FedUniV2', 'FedUniV2.1']:
                     loss_uni = torch.tensor(0.0).cuda()
+                    out_gatedcrf = gatecrf_loss(
+                      outputs_soft,
+                      loss_gatedcrf_kernels_desc,
+                      loss_gatedcrf_radius,
+                      volume_batch,
+                      self.args.img_size,
+                      self.args.img_size
+                  )["loss"]
+                    loss = loss + 0.1 * out_gatedcrf
                     # MSE, KL
                     for other_client in range(self.args.min_num_clients):
                         if other_client == self.args.cid:
