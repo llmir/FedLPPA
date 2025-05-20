@@ -89,6 +89,7 @@ cd FedLPPA/code_v4
 ``` bash
 conda env create -n fed39v2 -f fedlppa.yaml
 conda activate fed39v2
+pip install tree_filter-0.1-cp39-cp39-linux_x86_64.whl
 ```
 ## 3. Data Preparation
 You can download the datasets with different formats of sparsely-supervised annotations to the dir '_FedLPPA/data_' in the form of _.h5_.
